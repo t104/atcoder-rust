@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Reload main.rs",
+			"type": "shell",
+			"command": "/usr/bin/cp",
+			"args": [
+				"${file}",
+				"${workspaceFolder}/src/main.rs",
+				"--remove-destination"
+			]
+		},
+		{
+			"type": "cargo",
+			"command": "build",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "rust: cargo build",
+			"dependsOn":["Reload main.rs"]
+		}
+	]
+}
